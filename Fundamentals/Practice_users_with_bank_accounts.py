@@ -44,7 +44,7 @@ class User:
     def make_deposit(self, account_name, amount):       #create User make deposit methof (relate with BankAccount deposite method)
         if account_name in self.accounts:
             self.accounts[account_name].deposit(amount)
-        elsed
+        else
             print(f"{account_name} Account not found")
         return self
     def make_withdraw(self, account_name, amount):      #create User make withdraw method (relate with BankAccount withdraw method)

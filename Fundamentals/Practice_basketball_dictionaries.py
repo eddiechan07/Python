@@ -1,10 +1,10 @@
 class Player:
     # Update the constructor to accept a dictionary with a single player's information instead of individual arguments for the attributes.
-    def __init__(self, data):
-        self.name = data.get("name", " ")
-        self.age = data.get("age", 0)
-        self.position = data.get("position", " ")
-        self.team = data.get("team", " ")
+    def __init__(self, dictionary):
+        self.name = dictionary["name"]
+        self.age = dictionary["age"]
+        self.position = dictionary["position"]
+        self.team = dictionary["team"]
 
     def __str__(self):
         return (f"Name: {self.name}, Age: {self.age}, Position: {self.position}, Team: {self.team}")
@@ -12,7 +12,7 @@ class Player:
     @classmethod
     # Creates a list of Player instances from a list of dictionaries.
     def get_team(cls, team_list):
-        return [cls(data) for data in team_list]
+        return [cls(element) for element in team_list]    # returns a new list of Player objects
 
 # Create instances using individual player dictionaries.
 kevin = {
@@ -32,13 +32,11 @@ kyrie = {
     "age":32, "position": "Point Guard", 
     "team": "Brooklyn Nets"
 }
-
 player_kevin = Player(kevin)
 player_jason = Player(jason)
 player_kyrie = Player(kyrie)
 
-
-# Make a new list of Player instances from a list of players
+# Make a list of Player instances from a list of dictionaries
 players = [
     {
     "name": "Kevin Durant", 
@@ -74,13 +72,21 @@ players = [
     "team": "en"
 }
 ]
+new_team = []
+# player = [Player(each_player) for each_player in players]
+for each_dictionary in players:             # iterate through the players dictionaries
+    player = Player(each_dictionary)        # create a list of Player instances from the players dictionaries
+    new_team.append(player)                   # put the list of Player instances into a new list called new_team[]
 
-new_team = [(data) for data in players]
-print(new_team)
+
+[print(team)for team in new_team]
+# for team in new_team:                   # interate through the new_team[] list 
+#     print(team)                         # print out each element in the new_team[] list 
 
 team = Player.get_team(players)
-for player in team:
-    print(player)
+[print(player) for player in team]
+# for player in team:
+#     print(player)
 
 
 
