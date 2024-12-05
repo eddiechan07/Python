@@ -1,0 +1,33 @@
+.container{
+    width:80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left, .right{
+    width:50%;
+}
+
+h1{
+    width: 80%;
+    margin: 3% 10%;
+    color: aqua;
+
+}
+
+label, input{
+    width:40%;
+    display: block;
+    margin: 3% 0%;
+}
+
+form{
+    margin-left: 5%;
+}
+
+
+h2{
+    width: 40%;
+    margin: 3% 5%;
+}
+

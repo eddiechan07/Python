@@ -1,0 +1,48 @@
+.top {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2% 3%;
+}
+
+.middle{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 2% 3%;
+    justify-content: space-between;
+}
+.bottom{
+display: flex;
+align-items: center;
+margin: 2% 3%;
+width: 80%;
+justify-content: space-between;
+}
+
+.body_left{
+    width:10%;
+}
+
+.body_middle{
+    width:20%;
+}
+
+.body_right{
+    width:10%;
+}
+
+#Edit{
+    background-color: blue;
+    color: white;
+}
+#View{
+    background-color: green;
+    color: white;
+}
+#Delete{
+    background-color: red;
+    color: white;
+}
+

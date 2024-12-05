@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/new_sightings.css')}}">
+    <title>Report New Sighting</title>
+</head>
+<body>
+    <div class="top">
+        <h1>Sasquatch Websightings</h1>
+        <p><strong>{{ user_in_db.first_name }}</strong></p>
+    </div>
+    <div class="middle">
+        <h3>Reported Sightings</h3>
+        <div class="link">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <form action="/sightings/new" method="post">
+        <label for="">Location: </label>
+        <input type="text" name="location" required>
+        <label for="">Date of Sighting: </label>
+        <input type="date" name="date_of_sighting" max="{{ today_date }}" required>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <label for="">Number of Sasquatch: </label>
+        <input type="number" name="number_of_sasquatch" required>
+        <label for="">What Happened: </label>
+        <textarea name="what_happened" id="what_happened" required cols="21" rows="10"></textarea>
+        <input type="submit" name="submit" id="submit" value="Report">
+    </form>
+</body>
+</html>

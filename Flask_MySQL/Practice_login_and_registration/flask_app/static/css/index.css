@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    padding: 5% 10%;
+}
+
+.left_container, .right_container{
+    width: 30%;
+    background-color: rgb(80, 78, 78);
+    padding: 2% 0%;
+    padding-left: 8%;
+    margin-right: 10%;
+    color: white;
+}
+
+.left_container h2{
+    color: lightskyblue;
+    font-size: 30px;
+}
+
+.right_container h2{
+    color: green;
+    font-size: 30px;
+}
+
+input{
+    padding: 2%;
+    padding-right: 10%;
+    margin: 3% 0%;
+}
+
+.button{
+    margin-top: 10%;
+    padding: 2% 2%;
+    background-color:lightseagreen;
+    color: white;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="top">
+        <h1>Sasquatch Websightings</h1>
+        <p><strong>{{ user_in_db.first_name }}</strong></p>
+    </div>
+    <div class="middle">
+        <h3>Reported Sightings</h3>
+        <div class="link">
+            <a href="/sightings/new">Report a Sighting</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    {% for sighting in all_sightings %}
+    <div class="bottom">
+        <div class="body_left">
+            <h4>{{ sighting.location }}</h4>
+            <h4 style="color:purple">Skeptics: </h4>
+        </div>
+        <div class="body_middle">
+            <p>Date of Sighting: {{ sighting.date_of_sighting }}</p>
+            <p>Reported By: {{ sighting.user_name }}</p>
+        </div>
+        <div class="body_right">
+            <a id="View" href="/sightings/view/{{ sighting.id }}">View</a>
+            {% if user_in_db.first_name == sighting.user_name %}
+                <a id="Edit" href="/sightings/edit/{{ sighting.id }}">Edit</a>
+                <a id="Delete" href="/sightings/delete/{{ sighting.id }}">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

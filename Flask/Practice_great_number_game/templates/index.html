@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .too_high{
+            background-color: red;
+            width:25%;
+            height: 25%;
+            color: white;
+            font-size: larger;
+            margin: 5% 36%;
+            padding: 8% 1%;
+        }
+        .bottom{
+            display:inline-block;
+        }
+        button{
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcom to the Great Number Game!</h1>
+    <p>I am thinking a number between 1 and 100</p>
+    
+    <div class="too_high">
+        <p>{{ status }}</p>
+    </div>
+    <div class="bottom">
+        <p>Take a guess!</p>
+        <form action="{{url_for('guess')}}", method="post">
+            <input type="number" name="value">
+        </form>
+        <button>Submit</button>
+    </div>
+</body>
+</html>

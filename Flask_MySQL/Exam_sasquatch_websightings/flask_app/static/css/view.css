@@ -1,0 +1,22 @@
+.top {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2% 3%;
+}
+
+.middle{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 2% 3%;
+    justify-content: space-between;
+}
+
+.bottom{
+    border:solid;
+    margin: 2% 3%;
+    width:80%;
+    padding-left: 2%;
+}

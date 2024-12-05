@@ -1,0 +1,19 @@
+.container{
+    width:25%;
+    height:50%;
+    border: solid;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+}
+
+.comment{
+    /* width:50%; */
+}
+button{
+    width:20%;
+    margin-left: 70%;
+}

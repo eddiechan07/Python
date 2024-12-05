@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/ninja_gold.css') }}">
+    <title>Display</title>
+</head>
+<body>
+    <div class="top">
+        <h3>Your gold: </h3>
+        <p class="containner"> {{ gold }}</p>
+        
+    </div>
+    <div class="main">
+        <div class="place">
+            <h2>Farm</h2>
+            <h3>(earns 10-20 golds)</h3>
+            <form action="/process_money" method = "post">
+                <input type="hidden" name="place" value="farm">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="place">
+            <h2>Cave</h2>
+            <h3>(earns 5-10 golds)</h3>
+            <form action="/process_money" method = "post">
+                <input type="hidden" name="place" value="cave">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="place">
+            <h2>House</h2>
+            <h3>(earns 2-5 golds)</h3>
+            <form action="/process_money" method = "post">
+                <input type="hidden" name="place" value="house">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="place">
+            <h2>Casino</h2>
+            <h3>(earns/takes 0-50 golds)</h3>
+            <form action="/process_money" method = "post">
+                <input type="hidden" name="place" value="casino">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div>
+
+    <h4>Activities: </h4>
+    <ul>
+        {% for activity in activities %}
+            {% if activity['status'] == 'positive' %}
+                <li class="positive">{{ activity['message'] }}</li>
+            {% else %}
+                <li class="negative">{{ activity['message'] }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% if status != 'playing' %}
+        {% if status == 'win' %}
+            <p class="result">Congratulations! You Win!</p>
+        {% else %}
+            <p class="result">Sorry! You lost the game!</p>
+        {% endif %}
+        <div class="ending">
+            <h4>Move count: {{ move_count}}</h4>
+            <form action="/reset"method = "post">
+                <input type="hidden" name="clear" value="restart">
+                <input class="button" type="submit" value="Restart">
+            </form>
+        </div>
+    {% endif %}
+
+
+</body>
+</html>
