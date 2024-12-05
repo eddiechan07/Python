@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/cookie_editor.css')}}">
+</head>
+<body>
+    <div class="top">
+        <h1>Change Order</h1>
+        <a href="/cookies">Back to purchases</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form action="/cookies/edit/{{ cookie.id }}" method="post">
+        <label for="customer_name">Name: </label>
+        <input type="text" name="customer_name">
+        <br>
+        <label for="cookie_type">Cookie Type: </label>
+        <input type="text" name="cookie_type">
+        <br>
+        <label for="num_of_boxes">Number of boxes Type: </label>
+        <input type="number" name="num_of_boxes">
+        <br>
+        <input id="button" type="submit" name="" id="" value="Log">
+    </form>
+</body>
+</html>

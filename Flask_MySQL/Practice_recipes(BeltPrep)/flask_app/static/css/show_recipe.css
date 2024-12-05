@@ -1,0 +1,23 @@
+.top, .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin: 1% 2%;
+}
+
+.info_box{
+    border: solid;
+    margin: 1% 2%;
+    width: 50%;
+    /* display: block; */
+}
+
+.details{
+    width: 25%;
+    display: flex;
+    margin:2%;
+    justify-content: space-around;
+    gap: 20%;
+}
+

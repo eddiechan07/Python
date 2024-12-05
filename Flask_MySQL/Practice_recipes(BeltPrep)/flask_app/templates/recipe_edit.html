@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Edit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipe_edit.css') }}">
+</head>
+<body>
+    <div class="top">
+        <h1>Edit Recipe!</h1>
+        <a href="/recipes">back to recipes</a>
+        <a href="">Logout</a>
+    </div>
+    <form action="/recipes/edit/{{ recipe_to_edit.id }}" method="post">
+        <div class="body_left">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+            <br>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="20" rows="5" required></textarea>
+            <br>
+            <label for="instructions">Instructions</label>
+            <textarea name="instructions" id="instructions" cols="20" rows="10" required></textarea>
+        </div>
+        <div class="body_right">
+            <label for="date_cooked">Date Cooked/Made</label>
+            <input type="date" name="date_cooked" required>
+            <label for="under_30_minutes">Under_30_minutes</label>
+            <label for="under_30_minutes">
+                Yes<input type="radio" name="under_30_minutes" value="1">
+                No<input type="radio" name="under_30_minutes" value="0">
+            </label>
+            <br>
+            <input type="submit" name="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

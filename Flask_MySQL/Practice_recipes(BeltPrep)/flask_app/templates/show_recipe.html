@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Recipe</title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename = 'css/show_recipe.css') }}">
+</head>
+<body>
+    <div class="top">
+        <h2>Welcome, {{ user_in_db.first_name }}</h2>
+        <div class="nav_bar">
+            <a href="/recipes/new">+ Create</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="title">
+        <h2>{{ one_recipe.name }} </h2>
+        <h3>Posted By: {{ one_recipe.first_name }}</h3>
+    </div>
+    <div class="info_box">
+        <div class="details">
+            <p>Description: </p>
+            <p>{{ one_recipe.description }}</p>
+        </div>
+        <div class="details">
+            <p>Under 30 minutes?: </p>
+            <p>{{ one_recipe.under_30_minutes }}</p>
+        </div>
+        <div class="details">
+            <p>Instructions: </p>
+            <p>{{ one_recipe.instructions }}</p>
+        </div>
+        <div class="details">
+            <p>Date Made: </p>
+            <p>{{ one_recipe.date_cooked }}</p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+table{
+    width:50%;
+    margin-left: 10%;
+}
+
+h1{
+    width:50%;
+    margin-left: 25%;
+}
+
+
+td, th{
+    border:solid;
+
+}

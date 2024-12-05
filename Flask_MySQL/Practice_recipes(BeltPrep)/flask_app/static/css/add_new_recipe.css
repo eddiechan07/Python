@@ -1,0 +1,44 @@
+.top{
+    width:70%;
+    display: flex;
+    align-items: center;
+    gap: 30%;
+    margin: 2% 2%;
+}
+
+
+form{
+    display: flex;
+    vertical-align: top;
+}
+
+.body_left{
+    width:40%;
+    margin:2% 2%;
+}
+
+.body_left label{
+    width:15%;
+    display: inline-block;
+    margin-bottom: 10%;
+    margin-right: 5%;
+    vertical-align: top;
+}
+
+.body_right{
+    width:40%;
+    margin:2% 2%;
+}
+
+
+.body_right label{
+    width:50%;
+    margin:0% 2%;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.body_right input{
+    margin: 5% 2%;
+}

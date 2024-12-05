@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show_all_books_in_one_user</title>
+</head>
+<body>
+    <div class="box_left">
+        <h2 class="left_title"> {{user.name}}'s Favorite</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th># of Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title}}</td>
+                    <td>{{ book.num_of_pages }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="box_right">
+        <h2>Add Favorite</h2>
+
+    </div>
+</body>
+</html>

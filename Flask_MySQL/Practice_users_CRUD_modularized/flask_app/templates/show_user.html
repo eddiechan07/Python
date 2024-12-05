@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show User</title>
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+        }
+        h1{
+            width:25%;
+        }
+        #home{
+            width:25%;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <h1>User: {{ individual_user.id }}</h1>
+            <a id="home" href="/display">Home</a>
+        </div>
+        <p>Full Name: {{ individual_user.first_name }} {{ individual_user.last_name }}</p>
+        <p>Email: {{ individual_user.email }}</p>
+        <p>Created On: {{ individual_user.created_at }}</p>
+        <p>Last Updated On: {{ individual_user.updated_at }}</p>
+
+        <a href="/user/{{ individual_user.id }}/edit">Edit</a>
+        <a href="/user/{{ individual_user.id }}/delete" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+h1{
+    color: purple;
+    margin: 1%;
+}
+
+.container{
+    display:flex;
+    vertical-align: top;
+}
+
+.container_left, .container_right{
+    width: 40%;
+    margin: 1% 5%;
+    margin-right: 0%;
+}
+
+.label{
+    width:22%;
+    display: inline-block;
+}
+
+.input{
+    margin:3% 0%;
+    width:30%;
+}
+
+.button{
+    margin:auto;
+    margin-top: 3%;
+    display: block;
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cookies.css') }}">
+</head>
+<body>
+    <h1>Cookie Orders</h1>
+    <div class="top">
+        <p>All orders</p>
+        <a href="/cookies/new">+ New Order</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Cookie Type</th>
+                <th>Number of Boxes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for cookie in cookies %}
+            <tr>
+                <td>{{ cookie.customer_name }}</td>
+                <td>{{ cookie.cookie_type }}</td>
+                <td>{{ cookie.num_of_boxes }}</td>
+                <td><a href="/cookies/edit/{{cookie.id}}">edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

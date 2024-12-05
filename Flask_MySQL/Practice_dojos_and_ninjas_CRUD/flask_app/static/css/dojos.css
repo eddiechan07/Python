@@ -1,0 +1,35 @@
+.container{
+    width:100%;
+    display: flex;
+}
+
+.new_dojo{
+    width: 30%;
+    margin: 3% 5%;
+}
+
+form{
+    margin-top: 10%;
+}
+
+#button{
+    margin: 8% 20%;
+}
+
+.all_dojos{
+    width: 70%;
+    margin: 3%;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    border: solid;
+    padding: 0% 2%;
+    margin-bottom: 5%;
+}
+
+a{
+    margin:1% 0%;
+}

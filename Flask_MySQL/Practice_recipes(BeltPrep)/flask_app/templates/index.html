@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <h1>Recipe Share</h1>
+    <div class="container">
+        <div class="container_left">
+            <h2>Register</h2>
+            <form action="/register" method="post">                                       <!-- action attribute connect to @app.route('/', methods=['']) --> 
+                {% with messages = get_flashed_messages(category_filter=['register']) %}  <!-- use category_filter=[' '] to distinguish flash messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p style="color: red;">{{ message }}</p>                    <!-- use inner style to change the features of text -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <label class="label" for="first_name">First Name: </label>
+                <input class="input" type="text" name="first_name">                       <!-- "name" attribute connect to request.form[" "] -->
+                <br>
+                <label class="label" for="last_name">Last Name: </label>
+                <input class="input" type="text" name="last_name">
+                <br>
+                <label class="label" for="email">Email: </label>
+                <input class="input" type="email" name="email">
+                <br>
+                <label class="label" for="password">Password: </label>
+                <input class="input" type="password" name="password">
+                <br>
+                <label class="label" for="confirm_password">Confirm PW: </label>
+                <input class="input" type="password" name="confirm_password">
+                <br>
+                <input class="button" type="submit" name="Submit" id="Submit">
+            </form>
+        </div>
+        <div class="container_right">
+            <h2>Log in</h2>
+            <form action="/login" method="post">
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p style="color: blue;">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <label class="label" for="">Email: </label>
+                <input class="input" type="text" name="email">
+                <br>
+                <label class="label" for="">Password: </label>
+                <input class="input" type="text" name="password">
+                <br>
+                <input class="button" type="submit" name="Submit" id="Submit">
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

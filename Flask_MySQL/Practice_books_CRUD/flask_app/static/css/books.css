@@ -1,0 +1,35 @@
+body{
+    display: flex;
+}
+
+.box_left{
+    width:30%;
+    margin: 2% 5%;
+}
+
+.left_title{
+    margin-bottom: 20%;
+
+}
+input{
+    margin-bottom: 5%;
+}
+#button{
+    margin: 5% 0%;
+    padding: 2% 25%;
+    margin-bottom: 30%;
+}
+
+.box_right{
+    width:70%;
+    margin: 2% 0%;
+}
+
+.box{
+    width: 50%;
+    border: solid;
+    padding:1% 1%;
+}
+.user_name{
+    padding-bottom: 2%;
+}

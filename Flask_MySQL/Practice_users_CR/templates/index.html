@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/users_CR.css') }}">
+</head>
+<body>
+    <h1>Add a New User</h1>
+    <form class="form" action="/create" method="POST">
+        <label for="first_name">First Name: </label>
+        <input type="text" name="first_name" required>
+        <label for="last_name">Last Name: </label>
+        <input type="text" name="last_name" required>
+        <label for="email">Email: </label>
+        <input type="email" name="email" required>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

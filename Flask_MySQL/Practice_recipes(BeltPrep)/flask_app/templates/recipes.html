@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipes.css') }}">
+</head>
+<body>
+    <h2>Welcome, {{ user_in_db.first_name }}</h2>
+    <div class="top">
+        <h3>All posted recipes: </h3>
+        <div class="nav_bar">
+            <a href="/recipes/new">+ Create</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>recipe</th>
+                <th>Under</th>
+                <th>Posted By</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in all_recipes %}
+                <tr>
+                    <td>{{ recipe.name }}</td>
+                    <td>{{ "Yes" if recipe.under_30_minutes else "No" }}</td>
+                    <td>{{ recipe.creator }}</td>
+                    <td>
+                        <a href="/recipes/{{ recipe.id }}">view recipe</a>
+                        {% if recipe.creator == user_in_db.first_name %}
+                            <a href="/recipes/edit/{{ recipe.id }}">| edit |</a>
+                            <a href="/recipes/delete/{{ recipe.id }}">delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
