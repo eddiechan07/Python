@@ -1,0 +1,20 @@
+h1{
+    margin: 2%;
+}
+
+.container{
+    display: flex;
+    vertical-align: top;
+}
+
+
+.left_part, .right_part{
+    width:40%;
+    margin: 0% 2%;
+}
+
+label{
+    width:25%;
+    display: inline-block;
+    margin-bottom: 3%;;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+</head>
+<body>
+    <div class="top">
+        <h1>Coding Dojo Wall</h1>
+        <p>Welcome, {{ current_user.first_name }}!</p>
+        <a href="/">Log out</a>
+    </div>
+    <div class="middle">
+        <p>What is on your mind? Create a new post: </p>
+        <form action="/wall/post" method="post">
+            <textarea name="content" id="content" cols="50" rows="10"></textarea>
+            <input type="submit" name="submit" id="submit" value="Publish">
+        </form>
+    </div>
+    <div class="bottom">
+        <h2><strong>All Community Posts</strong></h2>
+        {% for post in posts %}
+            <h3>{{ post.first_name }} - {{ post.created_at }}</h3>
+            <p>{{ post.content }}</p>
+            {% if post.comments %}
+            <ul>
+                {% for comment in post.comments %}
+                    <li>{{ comment.first_name }}: {{ comment.content }} ({{ comment.created_at }})</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <br>
+            <p style="color:blueviolet">post a comment</p>
+            <form action="/wall/comment" method="post">
+                <textarea name="content" id="content"></textarea>
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <br>
+                <input type="submit" name="submit" id="submit" value="Comment">
+            </form>
+        {% endfor %}
+</body>
+</html>

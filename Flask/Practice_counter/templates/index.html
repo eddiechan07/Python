@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Counter</title>
+    <style>
+        h1, p{
+            padding-left: 50%;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+            padding-left: 10%;
+            gap: 3%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <p>Visit Count: {{ visit_count }} times. </p>
+    <p>Actual Visit: {{ actual_visit }}</p>
+
+    <div class ="button">
+        <form action="{{ url_for('visit_count_by_two') }}">
+            <button>+2</button>
+        </form>
+    
+        <form action="{{ url_for('reset')}}">
+            <button>Reset</button>
+        </form>
+
+        <form action="{{ url_for('visit_count_by_you') }}" method = 'POST'>
+            <label for="value">Increment by:</label>
+            <input type="number" name = 'value'>
+        </form>
+    </div>
+</body>
+</html>
